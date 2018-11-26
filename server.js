@@ -13,11 +13,9 @@ require('./server/api')(app);
 
  //connect to DB then run server
 db.sequelize.sync({
-  force: true
+  //force: true
 })
-.then(()=>{
-  seed.insert();
-})
+
 .then(() => {  
   app.listen(port,() => {
       console.log('running server on port'+ port);
