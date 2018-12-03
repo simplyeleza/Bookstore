@@ -1,8 +1,7 @@
 'use strict'
+const express = require('express');
 
 const models =require('../../models/db');
-
-
 exports.allBooks =(req,res) => {
     models.Book.findAll()
     .then(books => {

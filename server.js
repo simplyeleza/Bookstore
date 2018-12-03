@@ -11,13 +11,21 @@ require('./server/middleware/middleware')(app);
 require('./server/api')(app);
 
 
- //connect to DB then run server
-db.sequelize.sync({
-  //force: true
-})
+//  //connect to DB then run server
+// db.sequelize.sync({
+//   //force: true
+// })
 
-.then(() => {  
-  app.listen(port,() => {
-      console.log('running server on port'+ port);
+// .then(() => {  
+//   app.listen(port,() => {
+//       console.log('running server on port'+ port);
+//   })
+// });
+
+
+// Connect to DB then run server after seeding
+db.sequelize.sync().then(() => {
+  app.listen(port, () => {
+    console.log('running server on port ' + port);
   })
 });
